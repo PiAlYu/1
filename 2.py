@@ -1,16 +1,16 @@
 from math import ceil
 
-fin = open('27B_15342.txt')
+fin = open('Wq2dJkC1F.txt')
 a = fin.readlines()
 fin.close()
 a = [list(map(int, i.split())) for i in a]
-n, k = a.pop(0)
+n, k, v = a.pop(0)
 m = float('inf')
 for i in range(n):
-    a[i][1] = ceil(a[i][1] / 11)
+    a[i][1] = ceil(a[i][1] / v)
 b = [0] * k
 for i in range(n):
-    b[a[i][0]] = a[i][1]
+    b[a[i][0] % k] = a[i][1]
 baza, km, pv = b[0], 0, 0
 for i in range(len(b)):
     r = abs(i - km)
